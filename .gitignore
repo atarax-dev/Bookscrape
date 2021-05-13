@@ -116,3 +116,7 @@ dmypy.json
 # Pycharm config
 .idea/
 .idea
+
+#Directories
+download/
+.download
