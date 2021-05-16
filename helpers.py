@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import urllib.request
-import html
 
 
 def get_soup_object(url):
@@ -65,8 +64,8 @@ def extract_infos(booklink):
     product_page_url = booklink
     title = soup.find("div", class_="col-sm-6 product_main").h1.text
     try:
-        product_description = "\"" + html.escape(soup.find("div",
-                                                           id="product_description").find_next("p").text).replace(
+        product_description = "\"" + (soup.find("div",
+                                                id="product_description").find_next("p").text).replace(
             "&#x27;", "'").replace("&quot;", "\"").replace(";", "") + "\""
     except AttributeError:
         product_description = "No product description"
