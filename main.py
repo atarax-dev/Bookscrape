@@ -56,17 +56,22 @@ def main():
 
         valid_answer = False
         while not valid_answer:
-            answer = str.lower(input("Voulez-vous executer une autre fonction? (O/N)\n"))
-            if answer == "n":
-                print("A bientot")
-                wannaquit = True
-                valid_answer = True
-            elif answer == "o":
-                print("Retour au menu\n")
-                valid_answer = True
-            else:
+            try:
+                answer = str.lower(input("Voulez-vous executer une autre fonction? (O/N)\n"))
+                if answer == "n":
+                    print("A bientot")
+                    wannaquit = True
+                    valid_answer = True
+                elif answer == "o":
+                    print("Retour au menu\n")
+                    valid_answer = True
+                else:
+                    print("Vous devez entrez (O)ui ou (N)on")
+                    print(f"Vous avez ecris {answer}")
+            except ValueError:
                 print("Vous devez entrez (O)ui ou (N)on")
                 print(f"Vous avez ecris {answer}")
+
 
 
 def display_categories():
