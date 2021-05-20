@@ -60,7 +60,7 @@ def extract_infos(booklink):
     number_available = soup.find("th", string="Availability").find_next("td").text
     category_in_lis = soup.find("div", class_="container-fluid page").find("ul", class_="breadcrumb").findAll("li")
     category = category_in_lis[2].a.text
-    review_rating = soup.find("th", string="Number of reviews").find_next("td").text
+    review_rating = soup.find("p", class_="star-rating")["class"][1]
     product_page_url = booklink
     title = soup.find("div", class_="col-sm-6 product_main").h1.text
     try:
